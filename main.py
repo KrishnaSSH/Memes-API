@@ -20,6 +20,8 @@ REDDIT_USER_AGENT = os.getenv('REDDIT_USER_AGENT')
 # Initialize FastAPI
 app = FastAPI()
 
+app = FastAPI(docs_url="/documentation", redoc_url=None)
+
 # Initialize PRAW
 reddit = praw.Reddit(
     client_id=REDDIT_CLIENT_ID,
@@ -33,6 +35,11 @@ templates = Jinja2Templates(directory="templates")
 @app.get("/", response_class=HTMLResponse)
 async def read_index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.get("/docs", response_class=HTMLResponse)
+async def read_index(request: Request):
+    return templates.TemplateResponse("docs.html", {"request": request})
 
 @app.get("/give")
 async def give_meme():
