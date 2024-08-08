@@ -5,10 +5,6 @@
 
 # 📸 Memes API
 
-[![GitHub license](https://img.shields.io/github/license/KrishnaSSH/Memes-API)](https://github.com/KrishnaSSH/Memes-API/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/KrishnaSSH/Memes-API)](https://github.com/KrishnaSSH/Memes-API/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/KrishnaSSH/Memes-API)](https://github.com/KrishnaSSH/Memes-API/network)
-[![GitHub issues](https://img.shields.io/github/issues/KrishnaSSH/Memes-API)](https://github.com/KrishnaSSH/Memes-API/issues)
 
 Welcome to the Memes API! This API allows you to fetch random memes from the internet with a simple GET request. It's perfect for integrating memes into your applications or just for a bit of fun. 🎉
 
@@ -18,14 +14,7 @@ Welcome to the Memes API! This API allows you to fetch random memes from the int
 - **Flexible Integration:** Works with any language that can make HTTP requests.
 - **Free & Open Source:** Available for everyone to use and contribute.
 
-## 📋 Table of Contents
 
-- [Features](#features)
-- [Usage](#usage)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
-- [Links](#links)
 
 ## 🛠️ Usage
 
