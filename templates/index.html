@@ -29,14 +29,16 @@
         margin: 0;
         padding: 0;
     }
+
     body {
         font-size: 14px;
         margin: 0;
     }
+
     .v1_2 {
         width: 100vw;
         height: 100vh;
-        background: rgba(249,255,0,1);
+        background: rgba(249, 255, 0, 1);
         opacity: 1;
         position: relative;
         display: flex;
@@ -44,75 +46,96 @@
         align-items: center;
         overflow: hidden;
     }
+
     .v1_6 {
-        width: 80%; /* Adjust the width as needed */
-        max-width: 800px; /* Maximum width to avoid stretching too much */
-        color: rgba(51,40,40,1);
+        width: 80%;
+        /* Adjust the width as needed */
+        max-width: 800px;
+        /* Maximum width to avoid stretching too much */
+        color: rgba(51, 40, 40, 1);
         font-family: Coiny;
         font-weight: Regular;
-        font-size: 48px; /* Increased font size */
+        font-size: 48px;
+        /* Increased font size */
         opacity: 1;
         text-align: left;
-        margin: 0 auto; /* Center the text block horizontally */
+        margin: 0 auto;
+        /* Center the text block horizontally */
         position: absolute;
-        top: 50%; /* Center vertically */
-        left: 10%; /* Adjust the left position as needed */
-        transform: translateY(-50%); /* Center vertically */
+        top: 50%;
+        /* Center vertically */
+        left: 10%;
+        /* Adjust the left position as needed */
+        transform: translateY(-50%);
+        /* Center vertically */
     }
-    .v1_7, .v1_9, .v1_10, .v1_14 {
+
+    .v1_7,
+    .v1_9,
+    .v1_10,
+    .v1_14 {
         position: absolute;
     }
+
     .v1_7 {
         width: 71px;
         height: 66px;
-        background: rgba(146,98,98,0);
+        background: rgba(146, 98, 98, 0);
         opacity: 1;
         border-radius: 50%;
         top: 22px;
         left: 32px;
     }
+
     .v1_9 {
         width: 6px;
         height: 5px;
         background: url("../images/v1_9.png");
         opacity: 1;
-        border: 3px solid rgba(0,0,0,1);
+        border: 3px solid rgba(0, 0, 0, 1);
         top: 44px;
         left: 52px;
     }
+
     .v1_10 {
         width: 5px;
         height: 6px;
         background: url("../images/v1_10.png");
         opacity: 1;
-        border: 3px solid rgba(0,0,0,1);
+        border: 3px solid rgba(0, 0, 0, 1);
         top: 44px;
         left: 71px;
     }
+
     .v1_14 {
         width: 27px;
         height: 6px;
         background: url("../images/v1_14.png");
         opacity: 1;
-        border: 3px solid rgba(0,0,0,1);
+        border: 3px solid rgba(0, 0, 0, 1);
         top: 60px;
         left: 52px;
     }
+
     .docs-button {
         display: flex;
         justify-content: center;
         align-items: center;
         text-decoration: none;
-        position: absolute; /* Position the button absolutely */
-        bottom: 20px; /* Adjust bottom positioning if needed */
-        right: 20px; /* Position button on the right side */
+        position: absolute;
+        /* Position the button absolutely */
+        bottom: 20px;
+        /* Adjust bottom positioning if needed */
+        right: 20px;
+        /* Position button on the right side */
     }
+
     .v2_2 {
         width: 343px;
         height: 152px;
-        background: rgba(255,35,35,1);
+        background: rgba(255, 35, 35, 1);
         opacity: 1;
-        border: 15px solid rgba(0,0,0,1);
+        border: 15px solid rgba(0, 0, 0, 1);
         border-radius: 76px;
         overflow: hidden;
         position: relative;
@@ -120,8 +143,9 @@
         justify-content: center;
         align-items: center;
     }
+
     .v2_3 {
-        color: rgba(0,0,0,1);
+        color: rgba(0, 0, 0, 1);
         font-family: Cherry Bomb One;
         font-weight: Regular;
         font-size: 48px;
@@ -132,11 +156,15 @@
     /* Media query for desktop */
     @media (min-width: 768px) {
         .v1_6 {
-            text-align: left; /* Align text to the left on desktop */
+            text-align: left;
+            /* Align text to the left on desktop */
         }
+
         .docs-button {
-            bottom: 20px; /* Adjust if needed */
-            right: 20px; /* Place on the right side */
+            bottom: 20px;
+            /* Adjust if needed */
+            right: 20px;
+            /* Place on the right side */
         }
     }
 </style>
