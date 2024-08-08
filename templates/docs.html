@@ -346,7 +346,7 @@
         <div id="home" class="container">
             <p>To get an image response, just send a GET request to:</p>
             <div class="code-wrapper">
-                <code class="code">https://memes-delta.vercel.app/give</code>
+                <code class="code">https://memesapi.vercel.app/give</code>
                 <div class="green"></div>
             </div>
         </div>
@@ -364,7 +364,7 @@
                     <code id="python-code" class="code">
 import requests
 
-response = requests.get('https://memes-delta.vercel.app/give')
+response = requests.get('https://memesapi.vercel.app/give')
 print(response.json())
                     </code>
                 </div>
@@ -374,7 +374,7 @@ print(response.json())
                     <button class="copy-btn" onclick="copyCode('javascript-code')">Copy</button>
                     <div class="green"></div>
                     <code id="javascript-code" class="code">
-fetch('https://memes-delta.vercel.app/give')
+fetch('https://memesapi.vercel.app/give')
     .then(response => response.json())
     .then(data => console.log(data));
                     </code>
@@ -391,7 +391,7 @@ function App() {
     const [meme, setMeme] = useState(null);
 
     useEffect(() => {
-        fetch('https://memes-delta.vercel.app/give')
+        fetch('https://memesapi.vercel.app/give')
             .then(response => response.json())
             .then(data => setMeme(data));
     }, []);
