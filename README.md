@@ -1,4 +1,6 @@
-Certainly! Here’s the complete README content wrapped in markdown, ready to be saved in a file named `README.md`:
+![Banner](static/image.png)
+
+
 
 
 # 📸 Memes API
