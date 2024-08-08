@@ -23,7 +23,7 @@ Welcome to the Memes API! This API allows you to fetch random memes from the int
 To get a random meme, send a GET request to the following endpoint:
 
 ```plaintext
-https://memes-delta.vercel.app/give
+https://memesapi.vercel.app/give
 ```
 
 ### Sample Response
@@ -42,7 +42,7 @@ https://memes-delta.vercel.app/give
 ### Using Fetch (JavaScript)
 
 ```javascript
-fetch('https://memes-delta.vercel.app/give')
+fetch('https://memesapi.vercel.app/give')
     .then(response => response.json())
     .then(data => console.log(data));
 ```
@@ -52,7 +52,7 @@ fetch('https://memes-delta.vercel.app/give')
 ```javascript
 const axios = require('axios');
 
-axios.get('https://memes-delta.vercel.app/give')
+axios.get('https://memesapi.vercel.app/give')
     .then(response => console.log(response.data))
     .catch(error => console.error(error));
 ```
@@ -62,7 +62,7 @@ axios.get('https://memes-delta.vercel.app/give')
 ```python
 import requests
 
-response = requests.get('https://memes-delta.vercel.app/give')
+response = requests.get('https://memesapi.vercel.app/give')
 print(response.json())
 ```
 
@@ -75,7 +75,7 @@ function App() {
     const [meme, setMeme] = useState(null);
 
     useEffect(() => {
-        fetch('https://memes-delta.vercel.app/give')
+        fetch('https://memesapi.vercel.app/give')
             .then(response => response.json())
             .then(data => setMeme(data));
     }, []);
