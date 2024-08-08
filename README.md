@@ -109,9 +109,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🌐 Links
 
-- [Official Website](https://memes-delta.vercel.app/)
+- [Official Website](https://memesapi.vercel.app/)
 - [GitHub Repository](https://github.com/KrishnaSSH/Memes-API)
-- [API Documentation](https://memes-delta.vercel.app/docs)
+- [API Documentation](https://memesapi.vercel.app/docs)
 
 ---
 
