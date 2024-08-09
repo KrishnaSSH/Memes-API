@@ -3,7 +3,7 @@
 
 
 
-# 📸 Memes API
+#  Memes API
 
 
 Welcome to the Memes API! This API allows you to fetch random memes from the internet with a simple GET request. It's perfect for integrating memes into your applications or just for a bit of fun. 🎉
