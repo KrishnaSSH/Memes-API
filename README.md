@@ -101,7 +101,7 @@ We’d love to have your help with the Memes API! Here’s how you can contribut
 5. **Open a Pull Request**: Go to the Pull Requests tab and create a new pull request to merge your changes.
 
 
-For more details, see our [contributing guide](CONTRIBUTING.md).
+For more details, see our [contributing guide](CONTRIBUTIONS.md).
 
 ## 📄 License
 
