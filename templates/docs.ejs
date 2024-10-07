@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memes API Documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1f1f1f;
+            padding: 10px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header h1 {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .header .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1.1em;
+        }
+
+        .header .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        .header a.github-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1f1f1f;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .header a.github-link:hover {
+            background-color: #333;
+        }
+
+        .header a.github-link img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: #e0e0e0;
+            margin: 4px 0;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .container {
+            background-color: #1f1f1f;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 40px;
+            width: calc(100% - 80px);
+            max-width: 800px;
+            text-align: center;
+            flex-grow: 1;
+            margin: 20px auto;
+            overflow-x: auto;
+        }
+
+        .container.hidden {
+            display: none;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+        }
+
+        .code-wrapper {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Menlo', 'Courier New', monospace;
+            font-size: 1em;
+            text-align: left;
+            position: relative;
+            margin: 20px 0;
+            overflow-x: auto;
+            box-sizing: border-box;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .code-wrapper::before,
+        .code-wrapper::after,
+        .code-wrapper .green {
+            position: absolute;
+            top: 10px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-wrapper::before {
+            left: 10px;
+            background-color: #ff5f57;
+        }
+
+        .code-wrapper::after {
+            left: 30px;
+            background-color: #ffbd2e;
+        }
+
+        .code-wrapper .green {
+            left: 50px;
+            background-color: #28c840;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .code-wrapper .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #444;
+            border: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .code-wrapper .copy-btn:hover {
+            background-color: #666;
+        }
+
+        .code {
+            display: block;
+            white-space: pre-wrap;
+            color: #e0e0e0;
+            margin-top: 40px;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            margin: 0 5px;
+        }
+
+        .tab.active {
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background-color: #1f1f1f;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .mobile-menu a {
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .header .nav-links {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .sidebar {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main-content {
+                padding: 10px;
+            }
+
+            .container {
+                width: calc(100% - 40px);
+                padding: 20px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+        }
+    </style>
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.container').forEach(function (container) {
+                container.classList.add('hidden');
+            });
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab').forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(function (content) {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector('[data-tab="' + tabId + '"]').classList.add('active');
+        }
+
+        function copyCode(codeId) {
+            var code = document.getElementById(codeId);
+            var range = document.createRange();
+            range.selectNode(code);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+            document.execCommand('copy');
+            window.getSelection().removeAllRanges();
+        }
+
+        function toggleMenu() {
+            var menu = document.querySelector('.mobile-menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        let startX = 0;
+        let currentTab = 0;
+
+        document.addEventListener('touchstart', (event) => {
+            startX = event.touches[0].clientX;
+        });
+
+        document.addEventListener('touchend', (event) => {
+            const endX = event.changedTouches[0].clientX;
+            if (endX < startX - 50) {
+                switchTab(currentTab === 2 ? 0 : currentTab + 1);
+            } else if (endX > startX + 50) {
+                switchTab(currentTab === 0 ? 2 : currentTab - 1);
+            }
+        });
+
+        function switchTab(tabId) {
+            const tabs = ['python', 'javascript', 'react'];
+            currentTab = tabs.indexOf(tabId);
+            document.querySelectorAll('.tab').forEach((tab, index) => {
+                tab.classList.toggle('active', index === currentTab);
+            });
+            document.querySelectorAll('.tab-content').forEach((content, index) => {
+                content.classList.toggle('active', index === currentTab);
+            });
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Memes</h1>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links">
+            <a href="javascript:showContent('home')">Home</a>
+            <a href="javascript:showContent('samples')">Samples</a>
+            <a href="javascript:showContent('about')">About</a>
+            <a href="https://github.com/KrishnaSSH/Memes-API" target="_blank" class="github-link">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+            </a>
+        </div>
+    </div>
+    <div class="mobile-menu">
+        <a href="javascript:showContent('home'); toggleMenu();">Home</a>
+        <a href="javascript:showContent('samples'); toggleMenu();">Samples</a>
+        <a href="javascript:showContent('about'); toggleMenu();">About</a>
+        <a href="https://github.com/KrishnaSSH/Memes-API" target="_blank" class="github-link">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+        </a>
+    </div>
+    <div class="main-content">
+        <div id="home" class="container">
+            <p>To get an image response, just send a GET request to:</p>
+            <div class="code-wrapper">
+                <code class="code">https://memesapi.vercel.app/give</code>
+                <div class="green"></div>
+            </div>
+        </div>
+        <div id="samples" class="container hidden">
+            <h2>Sample Code</h2>
+            <div class="tab-container">
+                <div class="tab active" data-tab="python" onclick="switchTab('python')">Python</div>
+                <div class="tab" data-tab="javascript" onclick="switchTab('javascript')">JavaScript</div>
+                <div class="tab" data-tab="react" onclick="switchTab('react')">React</div>
+            </div>
+            <div id="python" class="tab-content active">
+                <div class="code-wrapper">
+                    <button class="copy-btn" onclick="copyCode('python-code')">Copy</button>
+                    <div class="green"></div>
+                    <code id="python-code" class="code">
+import requests
+
+response = requests.get('https://memesapi.vercel.app/give')
+print(response.json())
+                    </code>
+                </div>
+            </div>
+            <div id="javascript" class="tab-content">
+                <div class="code-wrapper">
+                    <button class="copy-btn" onclick="copyCode('javascript-code')">Copy</button>
+                    <div class="green"></div>
+                    <code id="javascript-code" class="code">
+fetch('https://memesapi.vercel.app/give')
+    .then(response => response.json())
+    .then(data => console.log(data));
+                    </code>
+                </div>
+            </div>
+            <div id="react" class="tab-content">
+                <div class="code-wrapper">
+                    <button class="copy-btn" onclick="copyCode('react-code')">Copy</button>
+                    <div class="green"></div>
+                    <code id="react-code" class="code">
+import React, { useEffect, useState } from 'react';
+
+function App() {
+    const [meme, setMeme] = useState(null);
+
+    useEffect(() => {
+        fetch('https://memesapi.vercel.app/give')
+            .then(response => response.json())
+            .then(data => setMeme(data));
+    }, []);
+
+    return (
+        <div>
+            {meme && <img src={meme.url} alt="meme" />}
+        </div>
+    );
+}
+
+export default App;
+                    </code>
+                </div>
+            </div>
+        </div>
+        <div id="about" class="container hidden">
+            <p>About the Memes API...</p>
+        </div>
+    </div>
+</body>
+
+</html>
