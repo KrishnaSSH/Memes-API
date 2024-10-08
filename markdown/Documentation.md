@@ -1,66 +1,124 @@
-# Supported Endpoints
 
-#  [/give](https://memesapi.vercel.app/)
+## Supported Endpoints (GET Request)
 
-Send a GET request to  [/give](https://memesapi.vercel.app/)
-### Example Response
+### - `/give`
+Retrieve one meme from r/memes
+
+### - `/give/{count}`
+Retrieve a specified number of memes from r/memes. Integer must be between 1 - 100
+
+### - `/give/{subreddit}`
+Retrieve a random meme from the given subreddit.
+
+### - `/give/{subreddit}/{count}`
+Retrieve a specified number of memes  from the given subreddit.  Integer must be between 1 - 100
+
+
+## [URL for the Enpoints](https://memesapi.vercel.app/) 
+
+
+
+## Example Response 
+### - `/give`
+Retrieve one meme from r/memes
 ```json
 {
 "count": 1,
 "memes": [
 {
-"postLink": "https://redd.it/1fyn3wk",
+"postLink": "https://redd.it/1fynxnn",
 "subreddit": "memes",
-"title": "Did you know as an actor, your job makes sure you can act??\n",
-"url": "https://i.redd.it/zmj5os5qfftd1.jpeg",
+"title": "Guess the game….",
+"url": "https://i.redd.it/0p3d88a3nftd1.jpeg",
 "nsfw": false,
 "spoiler": false,
-"author": "lorelaidoordie",
-"ups": 29
+"author": "Holiday_Box9404",
+"ups": 12519
 }
 ]
 }
 ```
 
-#  [/give/{count}](https://memesapi.vercel.app/) (MAX 100)
-
-Send a GET request to  [/give/{count}](https://memesapi.vercel.app/) 
-
-## Example Response
+### - `/give/{count}`
+Retrieve a specified number of memes from r/memes. Integer must be between 1 - 100
 
 ```json
 {
-"count": 3,
+"count": 2,
 "memes": [
 {
-"postLink": "https://redd.it/1fxzqzl",
+"postLink": "https://redd.it/1fyqlf1",
 "subreddit": "memes",
-"title": "why does this always happen (by me)",
-"url": "https://i.redd.it/jsc19k7sk9td1.jpeg",
+"title": "They pronounce words with letters that aren't even there ",
+"url": "https://i.redd.it/utixv6nqbgtd1.jpeg",
 "nsfw": false,
 "spoiler": false,
-"author": "JKowlpine7",
-"ups": 2728
+"author": "Next_Airport_7230",
+"ups": 4438
 },
 {
-"postLink": "https://redd.it/1fygosn",
+"postLink": "https://redd.it/1fynxnn",
 "subreddit": "memes",
-"title": "idk just randomly thought of this",
-"url": "https://i.redd.it/cc12k3ie1etd1.jpeg",
+"title": "Guess the game….",
+"url": "https://i.redd.it/0p3d88a3nftd1.jpeg",
 "nsfw": false,
 "spoiler": false,
-"author": "JKowlpine7",
-"ups": 184
+"author": "Holiday_Box9404",
+"ups": 12561
+}
+]
+}
+```
+
+### - `/give/{subreddit}`
+Retrieve a random meme from the given subreddit.
+
+```json
+{
+"count": 1,
+"memes": [
+{
+"postLink": "https://redd.it/1fysqs3",
+"subreddit": "ProgrammerHumor",
+"title": "whenDeploymentWasAFloppyDisk",
+"url": "https://i.redd.it/7ykxfftnzgtd1.png",
+"nsfw": false,
+"spoiler": false,
+"author": "derjanni",
+"ups": 2628
+}
+]
+}
+```
+
+
+### - `/give/{subreddit}/{count}`
+Retrieve a specified number of memes  from the given subreddit.  Integer must be between 1 - 100
+
+
+```json
+{
+"count": 2,
+"memes": [
+{
+"postLink": "https://redd.it/1fysqs3",
+"subreddit": "ProgrammerHumor",
+"title": "whenDeploymentWasAFloppyDisk",
+"url": "https://i.redd.it/7ykxfftnzgtd1.png",
+"nsfw": false,
+"spoiler": false,
+"author": "derjanni",
+"ups": 2632
 },
 {
-"postLink": "https://redd.it/1fxycul",
-"subreddit": "memes",
-"title": "6am to 3pm is awful ",
-"url": "https://i.redd.it/p3bga5or59td1.gif",
+"postLink": "https://redd.it/1fyvuu2",
+"subreddit": "ProgrammerHumor",
+"title": "notStressfulAtAll",
+"url": "https://i.redd.it/re4ed02y5itd1.jpeg",
 "nsfw": false,
 "spoiler": false,
-"author": "Jacobelemauve",
-"ups": 5079
+"author": "skeletium",
+"ups": 1167
 }
 ]
 }
