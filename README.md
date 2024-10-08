@@ -1,7 +1,7 @@
 # API that fetches memes from reddit
 
 ## Quickstart
- - [Documentation](https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/Docker.md)
+ - [Documentation](https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/Documentation.md)
  - [Privacy Policy](https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/PrivacyPolicy.md)
  - [Docker Guide](https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/Docker.md)
 
