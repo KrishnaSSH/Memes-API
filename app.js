@@ -45,9 +45,12 @@ app.get('/give/:subreddit?/:count?', async (req, res) => {
   let count = parseInt(req.params.count) || 1;
   let subreddit = req.params.subreddit;
 
+  // Check if subreddit is a number between 1 and 100
   if (!isNaN(subreddit) && subreddit >= 1 && subreddit <= 100) {
     count = subreddit;
-    subreddit = 'memes'; // Default subreddit
+    subreddit = 'memes'; // Set to default subreddit
+  } else if (!subreddit) {
+    subreddit = 'memes'; // Default subreddit if none is provided
   }
 
   if (count < 1 || count > 100) {
@@ -89,6 +92,7 @@ app.get('/give/:subreddit?/:count?', async (req, res) => {
   const selectedMemes = getMemesExactly(memes, Math.min(count, memes.length));
   return res.json({ count: selectedMemes.length, memes: selectedMemes.map(formatMemeResponse) });
 });
+
 
 const formatMemeResponse = (post) => {
   const data = post.data;
