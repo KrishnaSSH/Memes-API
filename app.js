@@ -1,10 +1,52 @@
+const express = require('express');
+const axios = require('axios');
+const dotenv = require('dotenv');
+const ejs = require('ejs');
+const path = require('path');
+const compression = require('compression');
+const morgan = require('morgan');
+const NodeCache = require('node-cache');
+
+dotenv.config();
+
+const axiosInstance = axios.create({
+  baseURL: 'https://www.reddit.com/r/memes/',
+  headers: {
+    'User-Agent': process.env.REDDIT_USER_AGENT,
+    'Authorization': `Basic ${Buffer.from(`${process.env.REDDIT_CLIENT_ID}:${process.env.REDDIT_CLIENT_SECRET}`).toString('base64')}`
+  },
+});
+
+const cache = new NodeCache({ stdTTL: 600 });
+const app = express(); // Initialize the Express app
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'templates'));
+
+app.use(compression());
+app.use(morgan('tiny'));
+app.use(express.static('public', {
+  maxAge: '1d',
+}));
+
+const getMemesExactly = (memes, count) => {
+  const shuffled = memes.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+app.get('/docs', (req, res) => {
+  res.render('docs');
+});
+
 app.get('/give/:subreddit?/:count?', async (req, res) => {
   let count = parseInt(req.params.count) || 1;
   let subreddit = req.params.subreddit;
 
-  // Check if the subreddit is a valid number (between 1 and 100)
   if (!isNaN(subreddit) && subreddit >= 1 && subreddit <= 100) {
-    count = subreddit; // If it's a number, set count to subreddit
+    count = subreddit;
     subreddit = 'memes'; // Default subreddit
   }
 
@@ -46,4 +88,23 @@ app.get('/give/:subreddit?/:count?', async (req, res) => {
   cache.set('memes', memes);
   const selectedMemes = getMemesExactly(memes, Math.min(count, memes.length));
   return res.json({ count: selectedMemes.length, memes: selectedMemes.map(formatMemeResponse) });
+});
+
+const formatMemeResponse = (post) => {
+  const data = post.data;
+  return {
+    postLink: `https://redd.it/${data.id}`,
+    subreddit: data.subreddit,
+    title: data.title,
+    url: data.url,
+    nsfw: data.over_18,
+    spoiler: data.spoiler,
+    author: data.author,
+    ups: data.ups,
+  };
+};
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
 });
