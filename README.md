@@ -1,4 +1,5 @@
 # API that fetches memes from reddit
+![](assets/trollface.png)
 
 ## Quickstart
  - [Documentation](https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/Documentation.md)
