@@ -23,33 +23,24 @@
     <meta name="twitter:description" content="Access a free Memes API to get trending and popular memes for your projects. Perfect for developers looking to add humor to their applications.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/KrishnaSSH/Memes-API/main/assets/trollface.png">
     
-    <!-- Google Search Console -->
-    <meta name="google-site-verification" content="MdsKRdPUs03lMlVcNU_zrju8dP1RlTEzsgW6RYvAAU0" />
-
     <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <!-- Flowbite CDN -->
-    <link href="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.css" rel="stylesheet">
-    
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
     <style>
-        /* Ensure the body occupies full height */
-        html,
-        body {
+        html, body {
             height: 100%;
         }
-
-        /* Fixed navbar for mobile */
         .fixed-navbar {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 50; /* Ensure it is above other elements */
+            z-index: 50;
         }
-
-        /* Ensure the body is not pushed down */
         .body-content {
-            padding-top: 4rem; /* Adjust according to navbar height */
+            padding-top: 4rem;
         }
     </style>
 </head>
@@ -66,13 +57,11 @@
                 aria-controls="navbar-default" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M1 1h15M1 7h15M1 13h15" />
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
                 </svg>
             </button>
             <div class="hidden w-full md:flex md:items-center md:justify-between md:w-auto" id="navbar-default">
-                <ul
-                    class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-900">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-gray-900">
                     <li>
                         <a href="https://www.google.com"
                             class="block py-2 px-3 text-white bg-blue-600 rounded hover:bg-blue-700 md:bg-transparent md:text-blue-600 md:p-0 transition-all duration-200"
@@ -118,15 +107,13 @@
         <div class="max-w-screen-xl mx-auto text-center text-gray-300">
             <p>&copy; 2024 Memes API. All rights reserved.</p>
             <ul class="flex justify-center space-x-4 mt-2">
-                <li><a href="https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/PrivacyPolicy.md" class="hover:text-blue-500 transition-all duration-200">Privacy Policy</a>
-                </li>
-                <li><a href="https://discord.com/users/877351272251023440" class="hover:text-blue-500 transition-all duration-200">Contact</a>
-                </li>
+                <li><a href="https://github.com/KrishnaSSH/Memes-API/blob/main/markdown/PrivacyPolicy.md" class="hover:text-blue-500 transition-all duration-200">Privacy Policy</a></li>
+                <li><a href="https://discord.com/users/877351272251023440" class="hover:text-blue-500 transition-all duration-200">Contact</a></li>
             </ul>
         </div>
     </footer>
 
-    <script>
+    <script defer>
         const button = document.querySelector('[data-collapse-toggle]');
         const navbar = document.getElementById('navbar-default');
 
@@ -136,7 +123,7 @@
     </script>
 
     <!-- Flowbite JS -->
-    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.js"></script>
+    <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.min.js" defer></script>
 </body>
 
 </html>
